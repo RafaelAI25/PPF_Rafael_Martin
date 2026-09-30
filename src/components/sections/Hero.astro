@@ -1,0 +1,44 @@
+---
+import PlaceholderImage from "../ui/PlaceholderImage.astro";
+import { useTranslations, type Lang } from "../../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section aria-labelledby="hero-title" class="bg-white">
+  <div class="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:py-24">
+    <h1
+      id="hero-title"
+      class="mx-auto max-w-4xl text-4xl font-black tracking-tight text-balance text-neutral-900 sm:text-5xl lg:text-6xl xl:text-7xl"
+    >
+      {t("hero.titleStart")} <strong class="underline decoration-2 underline-offset-4"
+        >{t("hero.titleHighlight")}</strong
+      > {t("hero.titleEnd")}
+    </h1>
+    <p class="mx-auto mt-6 max-w-2xl text-base text-neutral-600 sm:text-lg">
+      {t("hero.description")}
+    </p>
+    <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+      <a
+        href="#menu"
+        class="w-full rounded-full bg-neutral-900 px-8 py-3 text-center text-white sm:w-auto"
+      >
+        {t("hero.ctaPrimary")}
+      </a>
+      <a
+        href="#features"
+        class="w-full rounded-full border border-neutral-300 px-8 py-3 text-center text-neutral-900 sm:w-auto"
+      >
+        {t("hero.ctaSecondary")}
+      </a>
+    </div>
+    <div class="mt-10 sm:mt-12 lg:mt-16">
+      <PlaceholderImage title={t("hero.imageLabel")} ratio="video" />
+    </div>
+  </div>
+</section>

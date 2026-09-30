@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/layout/Header.astro";
+import Footer from "../../components/layout/Footer.astro";
+import Hero from "../../components/sections/Hero.astro";
+import FlexibleMenu from "../../components/sections/FlexibleMenu.astro";
+import VisualEditing from "../../components/sections/VisualEditing.astro";
+import LightningFast from "../../components/sections/LightningFast.astro";
+import DocsFeatures from "../../components/sections/DocsFeatures.astro";
+import OpenSource from "../../components/sections/OpenSource.astro";
+import TastyDeals from "../../components/sections/TastyDeals.astro";
+---
+
+<Layout lang="en">
+  <Header lang="en" />
+  <main>
+    <Hero lang="en" />
+    <FlexibleMenu />
+    <VisualEditing />
+    <LightningFast />
+    <DocsFeatures />
+    <OpenSource />
+    <TastyDeals />
+  </main>
+  <Footer />
+</Layout>

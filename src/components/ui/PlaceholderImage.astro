@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  ratio?: "video" | "portrait";
+  rounded?: boolean;
+}
+
+const { title, ratio = "video", rounded = true } = Astro.props;
+
+const ratioClass = ratio === "portrait" ? "aspect-[4/5]" : "aspect-video";
+const roundedClass = rounded ? "rounded-xl" : "";
+---
+
+<div
+  role="img"
+  aria-label={title}
+  class={`flex w-full ${ratioClass} ${roundedClass} flex-col items-center justify-center border-2 border-dashed border-neutral-400 bg-neutral-200 px-4 text-center text-neutral-600`}
+>
+  <span class="text-xs font-semibold uppercase tracking-widest">IMAGE PLACEHOLDER</span>
+  <span class="text-sm font-medium sm:text-base">{title}</span>
+</div>
