@@ -14,6 +14,7 @@ const es = {
     about: "Nosotros",
     menu: "Carta",
     openMenu: "Abrir menú",
+    mainLabel: "Navegación principal",
   },
   hero: {
     title: "Descubre Casa Aroma: cocina de temporada",
@@ -62,17 +63,38 @@ const es = {
       imagePlaceholderText: "Interior del restaurante",
     },
     docs: {
+      eyebrow: "Documentación",
       title: "Docs y funciones",
+      description: "Guías breves de ejemplo para empezar y personalizar.",
       cards: [
-        { title: "Cómo empezar", link: "Empezar" },
-        { title: "Estilo del tema", link: "Ver estilos" },
-        { title: "Funciones extra", link: "Ver más" },
+        {
+          title: "Cómo empezar",
+          description: "Pasos básicos de ejemplo para poner en marcha la página.",
+          linkText: "Empezar",
+          linkHref: "#docs",
+        },
+        {
+          title: "Estilo del tema",
+          description: "Opciones de ejemplo para ajustar colores y tipografía.",
+          linkText: "Ver estilos",
+          linkHref: "#docs",
+        },
+        {
+          title: "Funciones extra",
+          description: "Ejemplos breves de funciones adicionales disponibles.",
+          linkText: "Ver más",
+          linkHref: "#docs",
+        },
       ],
     },
     openSource: {
+      eyebrow: "Código abierto",
       title: "Abierto y gratuito",
       description: "Proyecto de ejemplo con fines educativos.",
       bullets: ["Uso libre", "Personalizable", "Comunidad"],
+      buttonText: "GitHub",
+      buttonHref: "https://github.com/",
+      imagePlaceholderText: "Banner de código abierto",
     },
   },
   deals: {
@@ -121,6 +143,7 @@ export const ui: Record<Lang, UITexts> = {
       about: "About",
       menu: "Menu",
       openMenu: "Open menu",
+      mainLabel: "Main navigation",
     },
     hero: {
       title: "Meet Casa Aroma: seasonal cooking",
@@ -169,17 +192,38 @@ export const ui: Record<Lang, UITexts> = {
         imagePlaceholderText: "Restaurant interior",
       },
       docs: {
+        eyebrow: "Documentation",
         title: "Docs & features",
+        description: "Short sample guides to get started and customize.",
         cards: [
-          { title: "Getting started", link: "Get started" },
-          { title: "Theme styling", link: "View styles" },
-          { title: "Extra features", link: "Learn more" },
+          {
+            title: "Getting started",
+            description: "Sample basic steps to launch the page.",
+            linkText: "Get started",
+            linkHref: "#docs",
+          },
+          {
+            title: "Theme styling",
+            description: "Sample options to adjust colors and typography.",
+            linkText: "View styles",
+            linkHref: "#docs",
+          },
+          {
+            title: "Extra features",
+            description: "Short sample descriptions of extra features.",
+            linkText: "Learn more",
+            linkHref: "#docs",
+          },
         ],
       },
       openSource: {
+        eyebrow: "Open source",
         title: "Open and free",
         description: "Sample project for educational purposes.",
         bullets: ["Free use", "Customizable", "Community"],
+        buttonText: "GitHub",
+        buttonHref: "https://github.com/",
+        imagePlaceholderText: "Open source banner",
       },
     },
     deals: {

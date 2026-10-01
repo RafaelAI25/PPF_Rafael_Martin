@@ -1,0 +1,45 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  linkText: string;
+  linkHref: string;
+  iconVariant: "circle" | "square" | "diamond";
+  titleId?: string;
+}
+
+const {
+  title,
+  description,
+  linkText,
+  linkHref,
+  iconVariant,
+  titleId,
+} = Astro.props as Props;
+
+const iconClass =
+  iconVariant === "circle"
+    ? "rounded-full bg-neutral-900"
+    : iconVariant === "square"
+      ? "rounded-lg border border-neutral-300 bg-neutral-100"
+      : "rotate-45 rounded-md border border-neutral-300 bg-neutral-900/10";
+---
+
+<article
+  aria-labelledby={titleId}
+  class="rounded-2xl border border-neutral-200 bg-white p-6 transition duration-200 hover:-translate-y-0.5 hover:border-neutral-300 hover:shadow-md focus-within:border-neutral-300 focus-within:shadow-md"
+>
+  <span aria-hidden="true" class={`block h-10 w-10 ${iconClass}`}></span>
+  <h3 id={titleId} class="mt-4 text-lg font-bold text-neutral-900">
+    {title}
+  </h3>
+  <p class="mt-2 text-sm text-neutral-600">{description}</p>
+  <p class="mt-4">
+    <a
+      href={linkHref}
+      class="font-medium text-neutral-900 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2"
+    >
+      {linkText}
+    </a>
+  </p>
+</article>

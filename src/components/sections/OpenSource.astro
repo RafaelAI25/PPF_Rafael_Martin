@@ -1,17 +1,64 @@
 ---
 import PlaceholderImage from "../ui/PlaceholderImage.astro";
+import { ui, type Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const advantages = ui[lang].sections.openSource.bullets;
 ---
 
-<section aria-labelledby="opensource-title">
-  <PlaceholderImage title="Open Source Banner" />
-  <div>
-    <h2 id="opensource-title">Free and Open Source</h2>
-    <p>Tema libre para proyectos personales y comerciales con fines educativos.</p>
-    <ul>
-      <li>Uso libre</li>
-      <li>Personalizable</li>
-      <li>Soporte de la comunidad</li>
-    </ul>
-    <p><a href="https://github.com/">GitHub</a></p>
+<section aria-labelledby="opensource-title" class="bg-white">
+  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
+    <div
+      class="overflow-hidden rounded-3xl bg-neutral-900 px-6 py-12 text-center sm:px-12 lg:px-16 lg:py-16"
+    >
+      <div class="mx-auto max-w-3xl">
+        <p
+          class="text-xs font-semibold uppercase tracking-widest text-neutral-400"
+        >
+          {t("sections.openSource.eyebrow")}
+        </p>
+        <h2
+          id="opensource-title"
+          class="mt-2 text-3xl font-extrabold tracking-tight text-balance text-white sm:text-4xl"
+        >
+          {t("sections.openSource.title")}
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-base text-neutral-300 sm:text-lg">
+          {t("sections.openSource.description")}
+        </p>
+        <ul
+          class="mt-6 flex flex-col items-center justify-center gap-2 text-sm font-medium text-neutral-200 sm:flex-row sm:gap-6"
+        >
+          {
+            advantages.map((advantage) => (
+              <li class="flex items-center gap-2">
+                <span
+                  aria-hidden="true"
+                  class="block h-1.5 w-1.5 rounded-full bg-neutral-400"
+                />
+                {advantage}
+              </li>
+            ))
+          }
+        </ul>
+        <p class="mt-8">
+          <a
+            href={t("sections.openSource.buttonHref")}
+            class="inline-block rounded-full bg-white px-8 py-3 text-center font-medium text-neutral-900 transition hover:bg-neutral-100"
+          >
+            {t("sections.openSource.buttonText")}
+          </a>
+        </p>
+      </div>
+      <div class="mx-auto mt-10 max-w-4xl">
+        <PlaceholderImage title={t("sections.openSource.imagePlaceholderText")} />
+      </div>
+    </div>
   </div>
 </section>

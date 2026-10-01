@@ -1,29 +1,53 @@
 ---
 import PlaceholderImage from "../ui/PlaceholderImage.astro";
+import { ui, type Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const offers = ui[lang].deals.items;
 ---
 
-<section id="deals" aria-labelledby="deals-title">
-  <h2 id="deals-title">Tasty Deals</h2>
-  <p>Ofertas de la semana del restaurante.</p>
-
-  <article aria-labelledby="deal-1">
-    <PlaceholderImage title="Tapas Dish" ratio="portrait" />
-    <h3 id="deal-1">Tapas for Two</h3>
-    <p>25% en tapas para dos, cada domingo.</p>
-    <p><span>$750</span></p>
-  </article>
-
-  <article aria-labelledby="deal-2">
-    <PlaceholderImage title="Mojito Drink" ratio="portrait" />
-    <h3 id="deal-2">Mojito Monday</h3>
-    <p>Cada lunes de 17:00 a 19:00.</p>
-    <p><span>$400</span></p>
-  </article>
-
-  <article aria-labelledby="deal-3">
-    <PlaceholderImage title="Margarita Drink" ratio="portrait" />
-    <h3 id="deal-3">Margarita Thursday</h3>
-    <p>Cada jueves de 17:00 a 19:00.</p>
-    <p><span>$350</span></p>
-  </article>
+<section id="deals" aria-labelledby="deals-title" class="bg-white">
+  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
+    <h2
+      id="deals-title"
+      class="text-center text-3xl font-extrabold tracking-tight text-balance text-neutral-900 sm:text-4xl"
+    >
+      {t("deals.title")}
+    </h2>
+    <p
+      class="mx-auto mt-4 max-w-2xl text-center text-base text-neutral-600 sm:text-lg"
+    >
+      {t("deals.subtitle")}
+    </p>
+    <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+      {
+        offers.map((offer, index) => (
+          <article
+            aria-labelledby={`deal-${index + 1}`}
+            class="rounded-2xl border border-neutral-200 bg-white p-6 transition duration-200 hover:-translate-y-0.5 hover:border-neutral-300 hover:shadow-md"
+          >
+            <PlaceholderImage title={offer.title} ratio="portrait" />
+            <h3
+              id={`deal-${index + 1}`}
+              class="mt-4 text-lg font-bold text-neutral-900"
+            >
+              {offer.title}
+            </h3>
+            <p class="mt-2 text-sm text-neutral-600">{offer.description}</p>
+            <p class="mt-4">
+              <span class="inline-block rounded-full bg-neutral-900 px-4 py-1.5 text-lg font-extrabold text-white">
+                {offer.price}
+              </span>
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
 </section>
