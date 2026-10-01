@@ -1,12 +1,24 @@
 ---
-import PlaceholderImage from "../ui/PlaceholderImage.astro";
+import FeatureSection from "./FeatureSection.astro";
+import type { Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
-<section id="features" aria-labelledby="editing-title">
-  <PlaceholderImage title="Editor Preview" />
-  <div>
-    <h2 id="editing-title">Effortless Visual Editing</h2>
-    <p>Gestión sencilla de los contenidos de la web sin conocimientos técnicos.</p>
-    <p><a href="#docs">Cómo funciona</a></p>
-  </div>
-</section>
+<FeatureSection
+  eyebrow={t("sections.visualEditing.eyebrow")}
+  title={t("sections.visualEditing.title")}
+  description={t("sections.visualEditing.description")}
+  buttonText={t("sections.visualEditing.buttonText")}
+  buttonHref={t("sections.visualEditing.buttonHref")}
+  imagePosition="left"
+  imagePlaceholderText={t("sections.visualEditing.imagePlaceholderText")}
+  sectionId="features"
+  titleId="editing-title"
+/>

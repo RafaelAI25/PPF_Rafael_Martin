@@ -1,17 +1,26 @@
 ---
-import PlaceholderImage from "../ui/PlaceholderImage.astro";
+import FeatureSection from "./FeatureSection.astro";
+import { ui, type Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const features = ui[lang].sections.flexibleMenu.bullets;
 ---
 
-<section id="menu" aria-labelledby="menu-title">
-  <div>
-    <h2 id="menu-title">Flexible Menu</h2>
-    <p>Muestra de carta con platos destacados y especiales del día.</p>
-    <ul>
-      <li>Actualiza platos fácilmente</li>
-      <li>Destaca especiales y temporada</li>
-      <li>Descripciones e imágenes por plato</li>
-    </ul>
-    <p><a href="#menu">Ver menú</a></p>
-  </div>
-  <PlaceholderImage title="Menu Photograph" ratio="portrait" />
-</section>
+<FeatureSection
+  eyebrow={t("sections.flexibleMenu.eyebrow")}
+  title={t("sections.flexibleMenu.title")}
+  description={t("sections.flexibleMenu.description")}
+  features={features}
+  buttonText={t("sections.flexibleMenu.buttonText")}
+  buttonHref={t("sections.flexibleMenu.buttonHref")}
+  imagePosition="right"
+  imagePlaceholderText={t("sections.flexibleMenu.imagePlaceholderText")}
+  sectionId="menu"
+  titleId="menu-title"
+/>

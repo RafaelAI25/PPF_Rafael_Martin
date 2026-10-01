@@ -1,16 +1,23 @@
 ---
-import PlaceholderImage from "../ui/PlaceholderImage.astro";
+import FeatureSection from "./FeatureSection.astro";
+import { ui, type Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const features = ui[lang].sections.lightningFast.bullets;
 ---
 
-<section aria-labelledby="fast-title">
-  <div>
-    <h2 id="fast-title">Lightning Fast</h2>
-    <p>Rendimiento y carga rápida para mejorar la experiencia y el SEO.</p>
-    <ul>
-      <li>Tiempos de carga instantáneos</li>
-      <li>Navegación fluida</li>
-      <li>Buen posicionamiento en buscadores</li>
-    </ul>
-  </div>
-  <PlaceholderImage title="Restaurant Interior" />
-</section>
+<FeatureSection
+  eyebrow={t("sections.lightningFast.eyebrow")}
+  title={t("sections.lightningFast.title")}
+  description={t("sections.lightningFast.description")}
+  features={features}
+  imagePosition="right"
+  imagePlaceholderText={t("sections.lightningFast.imagePlaceholderText")}
+  titleId="fast-title"
+/>

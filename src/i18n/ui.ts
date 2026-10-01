@@ -34,6 +34,7 @@ const es = {
   },
   sections: {
     flexibleMenu: {
+      eyebrow: "Carta flexible",
       title: "Menú flexible",
       description: "Platos destacados y especiales del día, de ejemplo.",
       bullets: [
@@ -41,15 +42,24 @@ const es = {
         "Destaca especiales de temporada",
         "Descripciones claras por plato",
       ],
+      buttonText: "Ver carta",
+      buttonHref: "#menu",
+      imagePlaceholderText: "Fotografía de la carta",
     },
     visualEditing: {
+      eyebrow: "Edición visual",
       title: "Gestión sencilla",
       description: "Contenidos de ejemplo fáciles de actualizar.",
+      buttonText: "Cómo funciona",
+      buttonHref: "#docs",
+      imagePlaceholderText: "Vista previa del editor",
     },
     lightningFast: {
+      eyebrow: "Rendimiento",
       title: "Carga rápida",
       description: "Rendimiento de ejemplo para una buena experiencia.",
       bullets: ["Carga rápida", "Navegación fluida", "Buen SEO"],
+      imagePlaceholderText: "Interior del restaurante",
     },
     docs: {
       title: "Docs y funciones",
@@ -131,6 +141,7 @@ export const ui: Record<Lang, UITexts> = {
     },
     sections: {
       flexibleMenu: {
+        eyebrow: "Flexible menu",
         title: "Flexible menu",
         description: "Sample featured dishes and daily specials.",
         bullets: [
@@ -138,15 +149,24 @@ export const ui: Record<Lang, UITexts> = {
           "Highlight seasonal specials",
           "Clear descriptions per dish",
         ],
+        buttonText: "View menu",
+        buttonHref: "#menu",
+        imagePlaceholderText: "Menu photograph",
       },
       visualEditing: {
+        eyebrow: "Visual editing",
         title: "Effortless editing",
         description: "Sample content that is easy to update.",
+        buttonText: "How it works",
+        buttonHref: "#docs",
+        imagePlaceholderText: "Editor preview",
       },
       lightningFast: {
+        eyebrow: "Performance",
         title: "Lightning fast",
         description: "Sample performance for a great experience.",
         bullets: ["Fast loading", "Smooth navigation", "Good SEO"],
+        imagePlaceholderText: "Restaurant interior",
       },
       docs: {
         title: "Docs & features",
