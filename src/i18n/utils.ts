@@ -1,5 +1,8 @@
 import { ui, defaultLang, type Lang } from "./ui";
 
+// Re-exportas el tipo para que Hero.astro lo pueda leer desde aquí
+export type { Lang };   
+
 export type TranslateFn = (key: string) => string;
 
 export function useTranslations(lang: Lang): TranslateFn {
