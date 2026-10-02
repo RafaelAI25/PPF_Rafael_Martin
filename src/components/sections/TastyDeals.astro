@@ -9,19 +9,26 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const offers = ui[lang].deals.items;
+
+interface Offer {
+  title: string;
+  description: string;
+  price: string;
+}
+
+const offers: Offer[] = ui[lang].deals.items;
 ---
 
 <section id="deals" aria-labelledby="deals-title" class="bg-white">
-  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
+  <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
     <h2
       id="deals-title"
-      class="text-center text-3xl font-extrabold tracking-tight text-balance text-neutral-900 sm:text-4xl"
+      class="text-center text-3xl font-black tracking-[-0.02em] text-balance text-teal-950 md:text-4xl"
     >
       {t("deals.title")}
     </h2>
     <p
-      class="mx-auto mt-4 max-w-2xl text-center text-base text-neutral-600 sm:text-lg"
+      class="mx-auto mt-4 max-w-2xl text-center text-base text-stone-600 sm:text-lg"
     >
       {t("deals.subtitle")}
     </p>
@@ -30,18 +37,18 @@ const offers = ui[lang].deals.items;
         offers.map((offer, index) => (
           <article
             aria-labelledby={`deal-${index + 1}`}
-            class="rounded-2xl border border-neutral-200 bg-white p-6 transition duration-200 hover:-translate-y-0.5 hover:border-neutral-300 hover:shadow-md"
+            class="rounded-2xl border border-teal-950/10 bg-cream p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg"
           >
             <PlaceholderImage title={offer.title} ratio="portrait" />
             <h3
               id={`deal-${index + 1}`}
-              class="mt-4 text-lg font-bold text-neutral-900"
+              class="mt-4 text-lg font-bold text-teal-950"
             >
               {offer.title}
             </h3>
-            <p class="mt-2 text-sm text-neutral-600">{offer.description}</p>
+            <p class="mt-2 text-sm leading-relaxed text-stone-600">{offer.description}</p>
             <p class="mt-4">
-              <span class="inline-block rounded-full bg-neutral-900 px-4 py-1.5 text-lg font-extrabold text-white">
+              <span class="inline-block rounded-full bg-teal-800 px-4 py-1.5 text-lg font-black text-cream">
                 {offer.price}
               </span>
             </p>

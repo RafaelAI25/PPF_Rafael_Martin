@@ -12,6 +12,7 @@ export interface Props {
   imagePlaceholderText: string;
   sectionId?: string;
   titleId?: string;
+  tone?: "white" | "cream";
 }
 
 const {
@@ -25,7 +26,10 @@ const {
   imagePlaceholderText,
   sectionId,
   titleId,
+  tone = "white",
 } = Astro.props as Props;
+
+const sectionBgClass = tone === "cream" ? "bg-cream" : "bg-white";
 
 const imageOrderClass =
   imagePosition === "left" ? "order-1" : "order-1 lg:order-2";
@@ -33,9 +37,9 @@ const contentOrderClass =
   imagePosition === "left" ? "order-2" : "order-2 lg:order-1";
 ---
 
-<section id={sectionId} aria-labelledby={titleId} class="bg-white">
+<section id={sectionId} aria-labelledby={titleId} class={sectionBgClass}>
   <div
-    class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:py-24"
+    class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-4 py-14 sm:px-6 md:py-20 lg:grid-cols-2 lg:gap-12"
   >
     <div class={imageOrderClass}>
       <PlaceholderImage title={imagePlaceholderText} />
@@ -43,22 +47,28 @@ const contentOrderClass =
     <div class={contentOrderClass}>
       {eyebrow && (
         <p
-          class="text-xs font-semibold uppercase tracking-widest text-neutral-500"
+          class="text-xs font-bold uppercase tracking-[0.18em] text-teal-700/80"
         >
           {eyebrow}
         </p>
       )}
       <h2
         id={titleId}
-        class="mt-2 text-3xl font-extrabold tracking-tight text-balance text-neutral-900 sm:text-4xl"
+        class="mt-3 text-3xl font-black tracking-[-0.02em] text-balance text-teal-950 md:text-4xl"
       >
         {title}
       </h2>
-      <p class="mt-4 text-base text-neutral-600 sm:text-lg">{description}</p>
+      <p class="mt-4 max-w-xl text-base text-stone-600 sm:text-lg">{description}</p>
       {features.length > 0 && (
-        <ul class="mt-6 list-disc space-y-2 pl-5 text-neutral-700">
+        <ul class="mt-6 space-y-3 text-stone-700">
           {features.map((feature) => (
-            <li>{feature}</li>
+            <li class="flex items-start gap-3">
+              <span
+                aria-hidden="true"
+                class="mt-2 block h-1.5 w-1.5 shrink-0 rounded-full bg-teal-600"
+              />
+              {feature}
+            </li>
           ))}
         </ul>
       )}
@@ -66,7 +76,7 @@ const contentOrderClass =
         <p class="mt-8">
           <a
             href={buttonHref}
-            class="inline-block rounded-full bg-neutral-900 px-8 py-3 text-center text-white"
+            class="inline-flex min-h-[2.75rem] items-center justify-center rounded-full bg-teal-800 px-7 py-3 text-center text-sm font-semibold uppercase tracking-wider text-cream transition duration-200 hover:-translate-y-0.5 hover:bg-teal-900"
           >
             {buttonText}
           </a>

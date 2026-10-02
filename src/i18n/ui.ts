@@ -119,10 +119,25 @@ const es = {
     ],
   },
   footer: {
+    brand: "Casa Aroma",
+    description:
+      "Restaurante de ejemplo: cocina de temporada y ambiente acogedor.",
     address: "Calle Ejemplo 123, Ciudad",
+    email: "hola@ejemplo.es",
+    phone: "+34 000 000 000",
     infoTitle: "Información",
+    infoHome: "Inicio",
+    infoAbout: "Nosotros",
+    infoDocs: "Docs",
     menuTitle: "Carta",
+    menuLinkMenu: "Menú",
+    menuLinkDeals: "Ofertas",
     hoursTitle: "Horario",
+    hours: [
+      { day: "Lun – Vie", time: "08:00 – 20:00" },
+      { day: "Sáb", time: "09:00 – 00:00" },
+      { day: "Dom", time: "Cerrado" },
+    ],
     rights: "© 2026 Casa Aroma — Ejercicio educativo",
   },
   languageSelector: {
@@ -248,10 +263,25 @@ export const ui: Record<Lang, UITexts> = {
       ],
     },
     footer: {
+      brand: "Casa Aroma",
+      description:
+        "Sample restaurant: seasonal cooking and a cozy atmosphere.",
       address: "123 Example Street, City",
+      email: "hello@example.com",
+      phone: "+34 000 000 000",
       infoTitle: "Information",
+      infoHome: "Home",
+      infoAbout: "About",
+      infoDocs: "Docs",
       menuTitle: "Menu",
+      menuLinkMenu: "Menu",
+      menuLinkDeals: "Deals",
       hoursTitle: "Opening hours",
+      hours: [
+        { day: "Mon – Fri", time: "08:00 – 20:00" },
+        { day: "Sat", time: "09:00 – 00:00" },
+        { day: "Sun", time: "Closed" },
+      ],
       rights: "© 2026 Casa Aroma — Educational exercise",
     },
     languageSelector: {
