@@ -19,4 +19,6 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
+  site: 'https://rafael25.github.io',
+  base: '/PPF_Rafael_Martin',
 });
